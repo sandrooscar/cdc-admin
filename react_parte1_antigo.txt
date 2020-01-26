@@ -1,0 +1,21 @@
+*** AULA01
+Necessário ter o Node.js instalado na sua máquina, assim como o NPM, para poder subir o projeto usando o Create React App
+jsx -> babel -> node -> webpack -> navegador
+
+Sobre server-cdc-admin
+-implementação para retornar os dados para aplicação react, desenvolvida em spring-boot.
+-basta rodar o ServerCdcAdminApplicationpara disponibilizar o server.
+
+*** AULA02
+
+Não existe em nenhuma especificação css ou JS para importar CSS em js, isso é o webpack que faz.
+Utilizamos o CSS simples do site https://purecss.io/ e copiamos os css que nos interessam para a pasta CSS.
+
+Exemplo de importação de classe que não é exportada por default:
+
+import { render } from '@testing-library/react';
+
+Como o render não éo default do modulo react, é necessário utilizar as chaves.
+
+COMO E REALIZADA A TRANSFORMACAO REACT JSX PARA JS
+https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/
