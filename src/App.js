@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/pure-min.css';
 import './css/side-menu.css';
+import $ from 'jquery';
 
 function Welcome(props) {
   console.log({props})
@@ -18,7 +19,25 @@ class App extends Component {
     }
   }
 
+  componentWillMount(){
+    console.log("willMount");
+  }
+
+  componentDidMount(){
+    console.log("didMount");
+    /* faz o this apontar para o this do App, caso contrário não seria possivel manipular o setState */
+    $.ajax({
+      url:"http://localhost:8080/api/autores",
+      dataType: 'json',
+      success: function(resposta){
+        console.log("chegou a resposta");
+        this.setState({lista:resposta});
+      }.bind(this) 
+    })
+  }
+
   render() {
+    console.log("render");
     return (
       <div id="layout">
 
@@ -79,7 +98,7 @@ class App extends Component {
                     {
                       this.state.lista.map(function(autor){
                         return(
-                          <tr>
+                          <tr key={autor.id}>
                             <td>{autor.nome}</td>
                             <td>{autor.email}</td>
                           </tr>

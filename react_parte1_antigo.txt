@@ -19,3 +19,42 @@ Como o render não éo default do modulo react, é necessário utilizar as chave
 
 COMO E REALIZADA A TRANSFORMACAO REACT JSX PARA JS
 https://babeljs.io/docs/en/babel-plugin-transform-react-jsx/
+
+*** AULA03 - Consumindo API e dando vida a nossa listagem
+para instalar o módulo jquery como dependência do Node.js
+
+npm install jquery --save
+
+--A boa prática diz que o construtor é usado para inicializar as variáveis
+constructor(){
+    //inicializa as variáveis
+}
+
+--executado APÓS o render
+componentDidMount(){
+    //código executado depois do render
+}
+
+--executado ANTES do método render()
+componentWillMount(){
+    //código executado ates do render
+}
+
+Nas chamadas ASSSINCRONAS é nessário invocar o setstate para executar o render novamente, já que o componentWillMount NÂO fica aguardando a resposta
+
+TODA VEZ QUE CHAMA O SETSTATE O MÉTODO RENDER É CHAMADO
+
+* ciclo de vida do dom virtual
+
+--executado depois da primeira renderização
+componentDidMount(){
+    //executado após primeira renderização
+}
+
+Entender o ciclo de vida do React é muito importante. São essas funções que te dão a chance de interagir com ele. 
+Na maior parte da sua vida, você vai utilizar o render e o componentDidMount. 
+Justamente porque em um você declara o componente em si e no outro você carrega o que pode ser necessário para ele. 
+Entretanto, quando seu projeto evoluir e ficar maior, talvez surja a necessidade você ter que lidar com outras funções do ciclo de vida, 
+como a shouldComponentUpdate. Ela indica para o React se seu componente deve ser renderizado e por default retorna true. 
+Numa tela super complexa, evitar invocações desnecessárias para o render, pode fazer diferença.
+Esses detalhes mais avançados, vão ficar para um segundo curso, ainda temos muito do básico do React para ver nesse primeiro curso!
