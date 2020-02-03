@@ -36,6 +36,12 @@ class App extends Component {
     })
   }
 
+  //evento é um static event
+  enviaForm(evento){
+    evento.preventDefault();
+    console.log("dados enviados");
+  }
+
   render() {
     console.log("render");
     return (
@@ -66,7 +72,7 @@ class App extends Component {
           </div>
           <div className="content" id="content">
             <div className="pure-form pure-form-aligned">
-              <form className="pure-form pure-form-aligned">
+              <form className="pure-form pure-form-aligned" onSubmit={this.enviaForm} method="Post">
                 <div className="pure-control-group">
                   <label htmlFor="nome">Nome</label>
                   <input id="nome" type="text" name="nome" value="" />

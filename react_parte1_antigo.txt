@@ -58,3 +58,6 @@ Entretanto, quando seu projeto evoluir e ficar maior, talvez surja a necessidade
 como a shouldComponentUpdate. Ela indica para o React se seu componente deve ser renderizado e por default retorna true. 
 Numa tela super complexa, evitar invocações desnecessárias para o render, pode fazer diferença.
 Esses detalhes mais avançados, vão ficar para um segundo curso, ainda temos muito do básico do React para ver nesse primeiro curso!
+
+*** AULA04 - Atualizando componentes
+
