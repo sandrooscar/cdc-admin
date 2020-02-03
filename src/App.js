@@ -44,7 +44,7 @@ class App extends Component {
         url: "http://localhost:8080/api/autores",
         contentType: 'application/json',
         type:'post',
-        data:"{}",
+        data: JSON.stringify({nome:'', email:'', senha: ''}),
         success: function(resposta){
           console.log("enviado com sucesso");
         },
