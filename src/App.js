@@ -40,6 +40,19 @@ class App extends Component {
   enviaForm(evento){
     evento.preventDefault();
     console.log("dados enviados");
+    $.ajax({
+        url: "http://localhost:8080/api/autores",
+        contentType: 'application/json',
+        type:'post',
+        data:"{}",
+        success: function(resposta){
+          console.log("enviado com sucesso");
+        },
+        error: function(resposta){
+          console.log("erro");
+          console.log(resposta);
+        }
+    })
   }
 
   render() {
