@@ -15,7 +15,10 @@ class App extends Component {
     this.state = {
       lista: [
         {nome:'sandro', email:'sandro@posthaus.com.br', senha:'123456'}
-      ]
+      ],
+      nome:'',
+      email:'',
+      senha:''
     }
   }
 
@@ -44,7 +47,7 @@ class App extends Component {
         url: "http://localhost:8080/api/autores",
         contentType: 'application/json',
         type:'post',
-        data: JSON.stringify({nome:'', email:'', senha: ''}),
+        data: JSON.stringify({nome:this.state.nome,email:this.state.email,senha:this.state.senha}),
         success: function(resposta){
           console.log("enviado com sucesso");
         },
