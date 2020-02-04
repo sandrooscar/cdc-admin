@@ -63,3 +63,5 @@ Esses detalhes mais avançados, vão ficar para um segundo curso, ainda temos mu
 
 * Por default as funções declaradas dentro da classe não são linkadas com o this da classe, é preciso utilizar o bind para fazer esse link.
 * toda a funcao JS é também um objeto, que possui a função bind onde pode ser informado qual this será usado lá dentro.
+
+Porque esquecemos de chamar o bind e especificar que queremos trabalhar com o this do React.

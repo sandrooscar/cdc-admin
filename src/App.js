@@ -68,7 +68,7 @@ class App extends Component {
           console.log(resposta);
           console.log("enviado com sucesso");
           this.setState({lista:resposta});
-        },
+        }.bind(this),
         error: function(resposta){
           console.log("erro");
           console.log(resposta);
