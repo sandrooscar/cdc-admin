@@ -65,3 +65,11 @@ Esses detalhes mais avançados, vão ficar para um segundo curso, ainda temos mu
 * toda a funcao JS é também um objeto, que possui a função bind onde pode ser informado qual this será usado lá dentro.
 
 Porque esquecemos de chamar o bind e especificar que queremos trabalhar com o this do React.
+
+** O this por default dentro do callback é o this do react, o bind diz que o diz a ser usado é o do react.
+
+ Para que possamos ter acesso aos parâmetros passados pelo código que utiliza o componente, usamos a variável props, que já é disponibilizada 
+ em toda classe que herda Component.
+
+ Notificamos o React que uma verificação de atualização é necessária através da invocação da função setState. Nela passamos a propriedade que 
+ já existe na variável state e também passamos o novo valor que deve ser associado a ela
