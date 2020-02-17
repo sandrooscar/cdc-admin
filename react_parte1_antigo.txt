@@ -73,3 +73,6 @@ Porque esquecemos de chamar o bind e especificar que queremos trabalhar com o th
 
  Notificamos o React que uma verificação de atualização é necessária através da invocação da função setState. Nela passamos a propriedade que 
  já existe na variável state e também passamos o novo valor que deve ser associado a ela
+
+*** AULA05
+- O JSX exige que o modulo principal do react seja importado como React
