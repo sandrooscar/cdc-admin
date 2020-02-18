@@ -3,15 +3,10 @@ import $ from 'jquery';
 import InputCustomizado from './componentes/InputCustomizado';
 import ButtonCustomizado from './componentes/ButtonCustomizado';
 
-export class FormularioAutor extends Component {
+class FormularioAutor extends Component {
     constructor(){
         super();
-        this.state = {
-          lista: [],
-          nome:'',
-          email:'',
-          senha:'',
-        };
+        this.state = {nome:'',email:'', senha:''};
         this.enviaForm = this.enviaForm.bind(this);
         this.setNome = this.setNome.bind(this);
         this.setEmail = this.setEmail.bind(this);
@@ -41,8 +36,8 @@ export class FormularioAutor extends Component {
             data: JSON.stringify({nome:this.state.nome,email:this.state.email,senha:this.state.senha}),
             success: function(resposta){
                 console.log(resposta);
-                console.log("enviado com sucesso");
-                this.setState({lista:resposta});
+                console.log("formularioAutor enviado com sucesso");
+                this.props.callBackAtualizaListagem(resposta);
             }.bind(this),
             error: function(resposta){
                 console.log("erro");
@@ -63,29 +58,7 @@ export class FormularioAutor extends Component {
     }
 }
 
-export class TabelaAutores extends Component {
-    constructor(){
-        super();
-        this.state = { lista: [] };
-    }
-
-    componentWillMount(){
-        console.log("willMount");
-    }
-
-    componentDidMount(){
-        console.log("didMount");
-        /* faz o this apontar para o this do App, caso contrário não seria possivel manipular o setState */
-        $.ajax({
-            url:"http://localhost:8080/api/autores",
-            dataType: 'json',
-            success: function(resposta){
-            console.log("chegou a resposta");
-            this.setState({lista:resposta});
-            }.bind(this) 
-        })
-    }
-
+class TabelaAutores extends Component {
     render(){
         return(
             <div>
@@ -98,7 +71,7 @@ export class TabelaAutores extends Component {
                 </thead>
                 <tbody>
                     {
-                      this.state.lista.map(function(autor){
+                      this.props.lista.map(function(autor){
                         return(
                           <tr key={autor.id}>
                             <td>{autor.nome}</td>
@@ -109,6 +82,46 @@ export class TabelaAutores extends Component {
                     }
                 </tbody>
               </table>
+            </div>
+        );
+    }
+}
+
+export default class AutorBox extends Component {
+    constructor(){
+        super();
+        this.state = { lista: [] };
+        this.atualizaListagem = this.atualizaListagem.bind(this);
+    }
+
+    componentWillMount(){
+        console.log("autobox willMount");
+    }
+
+    componentDidMount(){
+        console.log("autobox didMount");
+        /* faz o this apontar para o this do App, caso contrário não seria possivel manipular o setState */
+        $.ajax({
+            url:"http://localhost:8080/api/autores",
+            dataType: 'json',
+            success: function(resposta){
+            console.log("autobox chegou a resposta");
+            this.setState({lista:resposta});
+            }.bind(this) 
+        })
+    }
+
+    atualizaListagem(novaLista){
+        this.setState({lista:novaLista});
+    }
+
+    render(){
+        return (
+            <div>
+                <div className="pure-form pure-form-aligned">
+                    <FormularioAutor callBackAtualizaListagem={this.atualizaListagem}/>
+                    <TabelaAutores lista={this.state.lista}/>
+                </div>
             </div>
         );
     }

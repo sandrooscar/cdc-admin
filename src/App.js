@@ -4,7 +4,7 @@ import './css/side-menu.css';
 import $ from 'jquery';
 import InputCustomizado from './componentes/InputCustomizado';
 import ButtonCustomizado from './componentes/ButtonCustomizado';
-import { FormularioAutor, TabelaAutores } from './Autor.js';
+import AutorBox from './Autor';
 
 class App extends Component {
 
@@ -37,10 +37,7 @@ class App extends Component {
             <h1>Cadastro de Autores</h1>
           </div>
           <div className="content" id="content">
-            <div className="pure-form pure-form-aligned">
-              <FormularioAutor/>
-              <TabelaAutores/>
-            </div>
+            <AutorBox/>
           </div>
         </div>
 

@@ -76,3 +76,5 @@ Porque esquecemos de chamar o bind e especificar que queremos trabalhar com o th
 
 *** AULA05
 - O JSX exige que o modulo principal do react seja importado como React
+- Hide order component: é criado um componente Box que interliga os componentes.
+- Os argumentos que passamos para dentro de um componente ficam disponíveis na variável props, que possui um JSON criado dinamicamente.
