@@ -78,3 +78,24 @@ Porque esquecemos de chamar o bind e especificar que queremos trabalhar com o th
 - O JSX exige que o modulo principal do react seja importado como React
 - Hide order component: é criado um componente Box que interliga os componentes.
 - Os argumentos que passamos para dentro de um componente ficam disponíveis na variável props, que possui um JSON criado dinamicamente.
+
+** Publish subscriber desacoplamento
+Vamos trocar a utilização do callback que funcione da seguinte forma:
+"disparar um aviso geral de novaListagem disponivel".
+Assim que quiser ouvir, ouve.
+queremos que ele avise que aconteceu alguma coisa para os componentes que forem "interessados".
+Na programação, chamamos de publisher, quem publica o aviso, e de subscriber quem se inscreve para recebe-lo. 
+Para fazer isto, usaremos uma biblioteca que funciona tanto para JavaScript Client-side quanto para Server-side: o PubSubJS.
+COMANDO:
+npm install pubsub-js
+
+PubSub.publish(novaListagem);
+Informa que nossa listagem está disponivel. Vamos imaginar a seguinte situação, imagine que temos vários componentes na nossa 
+aplicação que estão interessados em ouvir diversas mensagens, sobre diferentes assuntos. Pode ser sobre a nova listagem ou que um item foi removido. 
+Além de publicarmos o objeto novo que está disponível para as pessoas manipularem, precisamos indicar qual é o canal, que costumamos chamar de tópico. 
+Trata-se de um lugar que iremos disponibilizar a informação. O nosso, chamaremos de atualiza-lista-autores.
+
+Ao cadastrarmos um novo autor, publicaremos no tópico que será ouvido por componentes interessados. Se alguém ficará interessado em ouvir, é um outro assunto... 
+Logo após montarmos o componente do AutorBox, vamos adicionar o PubSub e vamos nos inscrever ao tópico atualiza-lista-autores. Quando chegar um objeto novo, 
+precisaremos associar a uma função que será executada. Receberemos como argumento o canal que estamos escutando. Necessariamente, o primeiro argumento será o 
+topico e o segundo, será o objeto que foi passado.
