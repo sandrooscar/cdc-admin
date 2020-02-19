@@ -99,3 +99,14 @@ Ao cadastrarmos um novo autor, publicaremos no tópico que será ouvido por comp
 Logo após montarmos o componente do AutorBox, vamos adicionar o PubSub e vamos nos inscrever ao tópico atualiza-lista-autores. Quando chegar um objeto novo, 
 precisaremos associar a uma função que será executada. Receberemos como argumento o canal que estamos escutando. Necessariamente, o primeiro argumento será o 
 topico e o segundo, será o objeto que foi passado.
+
+Utilizando o subscribe, não se faz tão necessário o XXXBox, ja que é possivel se inscrever e monitorar os objetos que são atualizados.
+No geral, o pessoal utiliza o box paa armazenar os estados e os componentes ficam responsaveis pela visualização.
+
+Atenção: Nós criamos o AutorBox para fazer com que a listagem e formulário compartilhassem informações, por meio das 
+funções e dos estado mantidos no AutorBox. Quando partimos para a comunicação PubSub, não precisamos necessariamente ter o Box, 
+considerando que o trecho referente ao mesmo poderia voltar para a listagem e esta poderia se inscrever para receber novas atualizações.
+Entretanto, a comunidade de desenvolvedores que utiliza o React, gostam do uso do Higher-order Component porque o estado ficará separado no box, 
+e você terá componentes que trabalharam mais com a visualização.
+
+
