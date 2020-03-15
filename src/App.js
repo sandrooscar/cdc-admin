@@ -5,7 +5,7 @@ import $ from 'jquery';
 import InputCustomizado from './componentes/InputCustomizado';
 import ButtonCustomizado from './componentes/ButtonCustomizado';
 import AutorBox from './Autor';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 class App extends Component {
 

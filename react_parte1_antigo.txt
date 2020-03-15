@@ -125,3 +125,16 @@ Se estamos em /, ele já estará mapeado para App.
 Agora, queremos que o default seja a "Home". Pensando nisso, o módulo do IndexRoute será exportado no React Router. Iremos usá-lo com a Home.
 
 <IndexRoute component={Home}/>
+
+*** Link
+
+Usamos o componente Link porque ele já gera um a com um evento associado ao router, desta forma o clique não gera um reload da página.
+
+Utilizamos um <Link> porque já queremos gerar um <a> com o evento associado ao router. Quando clicamos nele, não queremos que seja feita uma nova requisição, queremos apenas que o conteúdo da página seja trocado pelo do componente associado com o link.
+
+*** consertando erro de compilacao
+O primeiro detalhe importante é que mudou a forma de fazermos as rotas aninhadas(nested routes). O Router recebe apenas um componente, que pode ser qualquer coisa. O fato primordial é que dentro desse componente exista alguma declaração de rotas, para que os endereços continuem funcionando. Perceba que foi justamente isso que fizemos quando passamos o componente App como filho de Router o Switch (que já vai ser explicado) como argumento da App.
+
+Um segundo ponto importante é a utilização do componente Switch. Poderíamos simplesmente deixar várias tag Route como parâmetro da nossa App, dessa forma as rotas seriam registradas e tudo funcionaria. O problema é que nesse caso queremos deixar claro que apenas uma das rotas vai ser acionada, o Switch serve justamente para garantir isso.
+
+Da forma que fizemos, mantemos exatamente o comportamento da versão anterior da nossa aplicação, só que usando a versão mais nova do router!
