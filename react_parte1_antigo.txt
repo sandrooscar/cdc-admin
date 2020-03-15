@@ -109,4 +109,10 @@ considerando que o trecho referente ao mesmo poderia voltar para a listagem e es
 Entretanto, a comunidade de desenvolvedores que utiliza o React, gostam do uso do Higher-order Component porque o estado ficará separado no box, 
 e você terá componentes que trabalharam mais com a visualização.
 
+*** AULA06 - React router e suporte a navegação
+
+npm install --save react-router@2.8.0
+
+Para que tudo funcione bem, nossos links deveriam disparar um evento JavaScript, que estivesse linkado com React Router. Ao clicarmos em um link, queremos alterar somente a URL do navegador, sem fazer a requisição e queremos que o novo componente seja renderizado. Para não precisarmos programar o JavaScript, faremos da seguinte forma: no arquivo App.js, importaremos um componente do React Router que recebe o nome de Link
+
 
