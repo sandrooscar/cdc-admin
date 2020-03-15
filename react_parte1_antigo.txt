@@ -115,4 +115,13 @@ npm install --save react-router@2.8.0
 
 Para que tudo funcione bem, nossos links deveriam disparar um evento JavaScript, que estivesse linkado com React Router. Ao clicarmos em um link, queremos alterar somente a URL do navegador, sem fazer a requisição e queremos que o novo componente seja renderizado. Para não precisarmos programar o JavaScript, faremos da seguinte forma: no arquivo App.js, importaremos um componente do React Router que recebe o nome de Link
 
+** Rotas filhas e Index route
 
+Nós queríamos que o componente do "Autor" fosse renderizado como um filho do "Home" e tivesse o layout principal da aplicação. A boa notícia que o Router oferecesse isso pronto.
+
+
+Se estamos em /, ele já estará mapeado para App.
+
+Agora, queremos que o default seja a "Home". Pensando nisso, o módulo do IndexRoute será exportado no React Router. Iremos usá-lo com a Home.
+
+<IndexRoute component={Home}/>
