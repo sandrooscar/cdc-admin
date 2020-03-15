@@ -40,11 +40,15 @@ class FormularioAutor extends Component {
                 console.log(novaListagem);
                 console.log("formularioAutor enviado com sucesso");
                 PubSub.publish('atualiza-lista-autores', novaListagem);
-            },
+                this.setState({nome:'', email:'', senha:''});
+            }.bind(this),
             error: function(resposta){
                 if(resposta.status === 400){
                     new TratadorErros().publicaErros(resposta.responseJSON);
                 }
+            },
+            beforeSend: function(){
+                PubSub.publish("limpa-erros",{})
             }
         })
     }
@@ -120,7 +124,7 @@ export default class AutorBox extends Component {
         return (
             <div>
                 <div className="pure-form pure-form-aligned">
-                    <FormularioAutor callBackAtualizaListagem={this.atualizaListagem}/>
+                    <FormularioAutor/>
                     <TabelaAutores lista={this.state.lista}/>
                 </div>
             </div>
